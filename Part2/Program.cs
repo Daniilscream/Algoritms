@@ -38,7 +38,7 @@ namespace Part2
             }
 
             int[] mergeArr = new int[] { 1, 2, 3, 4, 5, 1, 3, 5, 7, 8 };
-            foreach (int i in Merge(mergeArr, 0, arr.Length / 2, arr.Length))
+            foreach (int i in Merge(mergeArr, 0, mergeArr.Length / 2, mergeArr.Length))
             {
                 Console.WriteLine(i);
             }
@@ -173,23 +173,23 @@ namespace Part2
         //2.3.2 стр 61
         static int[] Merge(int[] arr, int first, int middle, int last)
         {
-            int n1 = middle - first + 1;
+            int n1 = middle - first;
             int n2 = last - middle;
             int[] firstArr = new int[n1];
             int[] secondArr = new int[n2];
-            int[] result = new int[last + 1];
+            int[] result = new int[last];
             for(int i = 0; i < n1; i++)
             {
                 firstArr[i] = arr[first + i];
             }
             for(int j = 0; j < n2; j++)
             {
-                secondArr[j] = arr[middle + j + 1];
+                secondArr[j] = arr[middle + j];
             }
 
             int i2 = 0;
             int j2 = 0;
-            for(int k = 0; k <= last; k++)
+            for(int k = 0; k < last; k++)
             {
                 if (i2 < n1 && j2 < n2)
                 {
